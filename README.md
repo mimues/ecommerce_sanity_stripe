@@ -1,6 +1,6 @@
 ## Check Out Deployed Application
 
-[https://ecommerce-sanity-stripe-git-main-mimues.vercel.app/](https://ecommerce-sanity-stripe-git-main-mimues.vercel.app/)
+[https://ecommerce-sanity-stripe-gray-ten.vercel.app/](https://ecommerce-sanity-stripe-gray-ten.vercel.app/)
 
 ---------------------------------------------------------------------------------------------------------------------------
 
