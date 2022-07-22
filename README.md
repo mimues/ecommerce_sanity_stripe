@@ -2,6 +2,10 @@
 
 [https://ecommerce-sanity-stripe-gray-ten.vercel.app/](https://ecommerce-sanity-stripe-gray-ten.vercel.app/)
 
+## Edit Products in Deployyed Sanity Studio
+
+[https://ecommerce-mm.sanity.studio/desk](https://ecommerce-mm.sanity.studio/desk)
+
 ---------------------------------------------------------------------------------------------------------------------------
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
