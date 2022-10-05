@@ -613,9 +613,33 @@ span.text-red {
     height: 560px;
     padding: 60px 40px;
   }
+  .hero-banner-container {
+    line-height: 1.3;
+  }
   .hero-banner-image {
-    top: -2%;
-    right: 1%;
+    top: 0;
+    right: 0;
+  }
+  .hero-banner-container h1 {
+    font-size: 70px;
+    margin-left: 0px;
+  }
+  .hero-banner-container h1 {
+    font-size: 70px;
+    margin-left: 0px;
+  }
+  .hero-banner-container h3 {
+    font-size: 45px;
+  }
+  .hero-banner-container button {
+    margin-top: 30px;
+    z-index: 10000;
+  }
+  .desc {
+    bottom: 40px;
+  }
+  .desc h5 {
+    margin-bottom: 6px;
   }
   .footer-banner-container {
     margin-top: 80px;
@@ -646,23 +670,6 @@ span.text-red {
   .banner-desc {
     flex-wrap: wrap;
     gap: 20px;
-  }
-  .hero-banner-container {
-    line-height: 1.3;
-  }
-  .hero-banner-container h1 {
-    font-size: 70px;
-    margin-left: 0px;
-  }
-  .hero-banner-container h3 {
-    font-size: 40px;
-  }
-  .hero-banner-container button {
-    margin-top: 50px;
-    z-index: 10000;
-  }
-  .desc {
-    bottom: 60px;
   }
   .product-detail-container {
     flex-wrap: wrap;
@@ -750,14 +757,13 @@ span.text-red {
 }
 
 @media screen and (max-width: 600px) {
-  .hero-banner-container {
-    padding: 60px 40px;
-  }
   .hero-banner-image {
-    top: 20%;
-    right: 0;
+    top: 25%;
     width: 350px;
     height: 350px;
+  }
+  .hero-banner-container button {
+    margin-top: 75px;
   }
   .footer-banner-container {
     height: 100%;
@@ -781,8 +787,22 @@ span.text-red {
 
 @media screen and (max-width: 400px) {
   .hero-banner-container {
+    height: 470px;
     padding: 40px 30px;
     padding-bottom: 10px;
+    line-height: 1.1;
+  }
+  .hero-banner-container h1 {
+    font-size: 60px;
+  }
+  .hero-banner-container h3 {
+    font-size: 40px;
+  }
+  .hero-banner-container button {
+    margin-top: 165px;
+  }
+  .desc {
+    bottom: 20px;
   }
   .hero-banner-image {
     top: 30%;
