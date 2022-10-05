@@ -15,6 +15,7 @@ const Success = () => {
     setTotalPrice(0)
     setTotalQuantities(0)
     runFireworks()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
   
 
@@ -27,7 +28,7 @@ const Success = () => {
             <h2>Thank you for your order!</h2>
             <p className="email-msg">Check your email inbox for the receipt.</p>
             <p className="description">
-                If your have any questions, pleas email
+                If your have any questions, please email
                 <a className="email" href="orders@mimues.com">
                     orders@mimues.com
                 </a>

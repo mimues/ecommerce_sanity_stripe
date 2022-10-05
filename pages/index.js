@@ -3,6 +3,7 @@ import React from "react";
 import { client } from "../lib/client";
 import { HeroBanner, FooterBanner, Product } from "../components";
 
+// Props coming from getServerSideProps
 const Home = ({ products, bannerData }) => {
   return (
     <>
@@ -19,6 +20,9 @@ const Home = ({ products, bannerData }) => {
   );
 };
 
+// Server side fetching, it renders in server and hidrates in client
+// getServerSideProps is used for very dynamic data, e.g. an e-commerce when stocks are changing constantly
+// for more static data (e.g. blog), we could use getStaticProps, which executes at build time or at page refresh
 export const getServerSideProps = async () => {
   //sanity query
   const query = '*[_type == "product"]'
