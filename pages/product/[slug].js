@@ -12,13 +12,13 @@ import {
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
   const [index, setIndex] = useState(0);
-  const { incQty, decQty, qty, onAdd, setShowCart } = useStateContext()
+  const { incQty, decQty, qty, onAdd, setShowCart } = useStateContext();
 
   const handleBuyNow = () => {
-    onAdd(product, qty)
+    onAdd(product, qty);
 
-    setShowCart(true)
-  }
+    setShowCart(true);
+  };
 
   return (
     <div>
@@ -64,16 +64,18 @@ const ProductDetails = ({ product, products }) => {
               <span className="minus" onClick={decQty}>
                 <AiOutlineMinus />
               </span>
-              <span className="num">
-                {qty}
-              </span>
+              <span className="num">{qty}</span>
               <span className="plues" onClick={incQty}>
                 <AiOutlinePlus />
               </span>
             </p>
           </div>
           <div className="buttons">
-            <button type="button" className="add-to-cart" onClick={() => onAdd(product, qty)}>
+            <button
+              type="button"
+              className="add-to-cart"
+              onClick={() => onAdd(product, qty)}
+            >
               Add to Cart
             </button>
             <button type="button" className="buy-now" onClick={handleBuyNow}>
@@ -96,6 +98,7 @@ const ProductDetails = ({ product, products }) => {
   );
 };
 
+// If a page has Dynamic Routes and uses getStaticProps, it needs to define a list of paths to be statically generated.
 export const getStaticPaths = async () => {
   const query = `*[_type == "product"] {
         slug {

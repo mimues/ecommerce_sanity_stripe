@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 
 const Context = createContext();
@@ -14,12 +14,10 @@ export const StateContext = ({ children }) => {
   let index;
 
   const onAdd = (product, quantity) => {
-    const checkProductInCart = cartItems.find(
-      (item) => item._id === product._id
-    );
+    const checkProductInCart = cartItems.find(item => item._id === product._id);
 
-    setTotalPrice((prevTotalPrice) => prevTotalPrice + product.price * quantity);
-    setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + quantity);
+    setTotalPrice(prevTotalPrice => prevTotalPrice + product.price * quantity);
+    setTotalQuantities(prevTotalQuantities => prevTotalQuantities + quantity);
 
     if (checkProductInCart) {
       const updatedCartItems = cartItems.map((cartProduct) => {
@@ -56,14 +54,14 @@ export const StateContext = ({ children }) => {
     if(value === 'inc') {
       // setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity + 1 }])
       //solution for fixing change of order when updating cart
-      setCartItems(cartItems.map((item) => item._id === id ? { ...foundProduct, quantity: foundProduct.quantity + 1 } : item));
+      setCartItems(cartItems.map((item) => item._id === id ? { ...foundProduct, quantity: foundProduct.quantity + 1 } : item ));
       setTotalPrice((prevTotalPrice) => prevTotalPrice + foundProduct.price)
       setTotalQuantities((prevTotalQuantities) => prevTotalQuantities + 1)
     } else if(value === 'dec') {
       if(foundProduct.quantity > 1) {
         // setCartItems([...newCartItems, { ...foundProduct, quantity: foundProduct.quantity - 1 }])
         //solution for fixing change of order when updating cart
-        setCartItems(cartItems.map((item) => item._id === id ? { ...foundProduct, quantity: foundProduct.quantity - 1 } : item));
+        setCartItems(cartItems.map((item) => item._id === id ? { ...foundProduct, quantity: foundProduct.quantity - 1 } : item ));
         setTotalPrice((prevTotalPrice) => prevTotalPrice - foundProduct.price)
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1)
       }

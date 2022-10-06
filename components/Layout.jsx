@@ -3,11 +3,11 @@ import Head from 'next/head'
 import Navbar from './Navbar'
 import Footer from './Footer'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, title = 'Mimues Store' }) => {
   return (
     <div className='layout'>
       <Head>
-        <title>Mimues Store</title>
+        <title>{title}</title>
       </Head>
       <header>
         <Navbar />
