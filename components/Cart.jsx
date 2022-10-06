@@ -89,10 +89,10 @@ const Cart = () => {
                         <span className="minus" onClick={() => toggleCartItemQuantity(item._id, 'dec')}>
                           <AiOutlineMinus />
                         </span>
-                        <span className="num" onClick="">
+                        <span className="num">
                           {item.quantity}
                         </span>
-                        <span className="plues" onClick={() => toggleCartItemQuantity(item._id, 'inc')}>
+                        <span className="plus" onClick={() => toggleCartItemQuantity(item._id, 'inc')}>
                           <AiOutlinePlus />
                         </span>
                       </p>
@@ -112,7 +112,7 @@ const Cart = () => {
               <h3>Subtotal:</h3>
               <h3>${totalPrice}</h3>
             </div>
-            <div className="btn-container">
+            <div className="btn-container stripe">
               <button type="button" className="btn" onClick={handleCheckout}>
                 Pay with Stripe
               </button>
