@@ -398,9 +398,6 @@ span.text-red {
   width: 100%;
   color: #324d67;
 }
-/* .item-desc .bottom {
-  margin-top: 60px;
-} */
 .flex h5 {
   font-size: 24px;
 }
@@ -749,16 +746,9 @@ span.text-red {
   .product-detail-container {
     margin: 20px;
   }
-  /* .top {
-    flex-wrap: wrap;
-    gap: 10px;
-  } */
   .item-desc {
     padding-bottom: 0;
   }
-  /* .item-desc .bottom {
-    margin-top: 30px;
-  } */
   .flex h5 {
     font-size: 16px;
     color: #324d67;
@@ -773,8 +763,6 @@ span.text-red {
   .total h3 {
     font-size: 20px;
   }
-
-
 
   .track {
     animation: marquee 10s linear infinite;

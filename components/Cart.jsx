@@ -1,4 +1,3 @@
-import React, { useRef } from "react";
 import Link from "next/link";
 import {
   AiOutlineMinus,
@@ -14,35 +13,38 @@ import { urlFor } from "../lib/client";
 import getStripe from "../lib/getStripe";
 
 const Cart = () => {
-  const cartRef = useRef();
-  const { totalPrice, totalQuantities, cartItems, setShowCart, toggleCartItemQuantity, onRemove } =
-    useStateContext();
-
+  const {
+    totalPrice,
+    totalQuantities,
+    cartItems,
+    setShowCart,
+    toggleCartItemQuantity,
+    onRemove,
+  } = useStateContext();
 
   //Creating an instance of a checkout for a specific user
   const handleCheckout = async () => {
-    const stripe = await getStripe()
-
-    const response = await fetch('/api/stripe', {
-      method: 'POST',
+    toast.loading("Redirecting...");
+    
+    const stripe = await getStripe();
+    
+    const response = await fetch("/api/stripe", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(cartItems)
-    })
+      body: JSON.stringify(cartItems),
+    });
 
-    if (response.statusCode === 500) return
+    if (response.statusCode === 500) return;
 
-    const data = await response.json()
+    const data = await response.json();
 
-    toast.loading('Redirecting...')
-
-    stripe.redirectToCheckout({ sessionId: data.id })
-  }
-
+    stripe.redirectToCheckout({ sessionId: data.id });
+  };
 
   return (
-    <div className="cart-wrapper" ref={cartRef}>
+    <div className="cart-wrapper">
       <div className="cart-container">
         <button
           type="button"
@@ -86,18 +88,26 @@ const Cart = () => {
                   <div className="flex bottom">
                     <div>
                       <p className="quantity-desc">
-                        <span className="minus" onClick={() => toggleCartItemQuantity(item._id, 'dec')}>
+                        <span
+                          className="minus"
+                          onClick={() => toggleCartItemQuantity(item._id, "dec")}
+                        >
                           <AiOutlineMinus />
                         </span>
-                        <span className="num">
-                          {item.quantity}
-                        </span>
-                        <span className="plus" onClick={() => toggleCartItemQuantity(item._id, 'inc')}>
+                        <span className="num">{item.quantity}</span>
+                        <span
+                          className="plus"
+                          onClick={() => toggleCartItemQuantity(item._id, "inc")}
+                        >
                           <AiOutlinePlus />
                         </span>
                       </p>
                     </div>
-                    <button type="button" className="remove-item" onClick={() => onRemove(item)}>
+                    <button
+                      type="button"
+                      className="remove-item"
+                      onClick={() => onRemove(item._id)}
+                    >
                       <TiDeleteOutline />
                     </button>
                   </div>
