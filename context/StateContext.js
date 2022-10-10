@@ -12,31 +12,6 @@ export const StateContext = ({ children }) => {
 
   let foundProduct;
 
-  // OUTSIDE CART --> IN PRODUCT DETAILS WE PASS THE PRODUCT AND THE QUANTITY
-  const onAdd = (product, quantity) => {
-    const checkProductInCart = cartItems.find(item => item._id === product._id);
-
-    setTotalPrice(prevTotalPrice => prevTotalPrice + product.price * quantity);
-    setTotalQuantities(prevTotalQuantities => prevTotalQuantities + quantity);
-
-    if (checkProductInCart) {
-      const updatedCartItems = cartItems.map((cartProduct) => {
-        if (cartProduct._id === product._id)
-          return {
-            ...cartProduct,
-            quantity: cartProduct.quantity + quantity,
-          };
-      });
-
-      setCartItems(updatedCartItems)
-    } else {
-      product.quantity = quantity
-      
-      setCartItems([...cartItems, { ...product }])
-    }
-    toast.success(`${qty} ${product.name} added to the cart`)
-  }
-
   // INSIDE CART
   const onRemove = (id) => {
     foundProduct = cartItems.find((item) => item._id === id)
@@ -65,6 +40,31 @@ export const StateContext = ({ children }) => {
         setTotalQuantities((prevTotalQuantities) => prevTotalQuantities - 1)
       }
     }
+  }
+
+  // OUTSIDE CART --> IN PRODUCT DETAILS WE PASS THE PRODUCT AND THE QUANTITY
+  const onAdd = (product, quantity) => {
+    const checkProductInCart = cartItems.find(item => item._id === product._id);
+
+    setTotalPrice(prevTotalPrice => prevTotalPrice + product.price * quantity);
+    setTotalQuantities(prevTotalQuantities => prevTotalQuantities + quantity);
+
+    if (checkProductInCart) {
+      const updatedCartItems = cartItems.map((cartProduct) => {
+        if (cartProduct._id === product._id)
+          return {
+            ...cartProduct,
+            quantity: cartProduct.quantity + quantity,
+          };
+      });
+
+      setCartItems(updatedCartItems)
+    } else {
+      product.quantity = quantity
+      
+      setCartItems([...cartItems, { ...product }])
+    }
+    toast.success(`${qty} ${product.name} added to the cart`)
   }
 
   // OUTSIDE CART --> IN PRODUCT DETAILS WE JUST INCREASE THE QTY STATE, SINCE WE WILL TAKING INTO ACCOUNT IN ONADD()
