@@ -573,10 +573,8 @@ a {
   }
 }
 
-.max-qty {
-  font-weight: 500;
-  color: #f02d34;
-}
+
+/* SUCCESS PURCHASE */
 .success-wrapper,
 .cancel-wrapper {
   background-color: white;
@@ -585,7 +583,7 @@ a {
 .success,
 .cancel {
   cursor: pointer;
-  width: 1000px;
+  max-width: 1000px;
   margin: auto;
   margin-top: 160px;
   background-color: #dcdcdc;
@@ -596,7 +594,6 @@ a {
   align-items: center;
   flex-direction: column;
 }
-
 .success .icon {
   color: green;
   font-size: 40px;
@@ -627,9 +624,6 @@ a {
 .success .description .email {
   margin-left: 5px;
   color: #f02d34;
-}
-.product-max-qty {
-  margin-top: 10px;
 }
 
 @media screen and (max-width: 800px) {
