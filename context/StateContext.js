@@ -12,6 +12,7 @@ export const StateContext = ({ children }) => {
 
   let foundProduct;
 
+  // OUTSIDE CART --> IN PRODUCT DETAILS WE PASS THE PRODUCT AND THE QUANTITY
   const onAdd = (product, quantity) => {
     const checkProductInCart = cartItems.find(item => item._id === product._id);
 
@@ -31,7 +32,7 @@ export const StateContext = ({ children }) => {
     } else {
       product.quantity = quantity
       
-      setCartItems([...cartItems, {...product}])
+      setCartItems([...cartItems, { ...product }])
     }
     toast.success(`${qty} ${product.name} added to the cart`)
   }
@@ -66,6 +67,7 @@ export const StateContext = ({ children }) => {
     }
   }
 
+  // OUTSIDE CART --> IN PRODUCT DETAILS WE JUST INCREASE THE QTY STATE, SINCE WE WILL TAKING INTO ACCOUNT IN ONADD()
   const incQty = () => {
     setQty((prevQty) => prevQty + 1);
   };

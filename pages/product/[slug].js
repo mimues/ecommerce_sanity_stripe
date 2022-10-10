@@ -11,6 +11,7 @@ import {
 
 const ProductDetails = ({ product, products }) => {
   const { image, name, details, price } = product;
+  // Index for different images
   const [index, setIndex] = useState(0);
   const { incQty, decQty, qty, onAdd, setShowCart } = useStateContext();
 

@@ -57,7 +57,8 @@ a {
 .navbar-container {
   display: flex;
   justify-content: space-between;
-  margin: 6px 18px;
+  align-items: center;
+  margin: 12px 18px 6px;
   position: relative;
 }
 .logo {
@@ -91,41 +92,7 @@ a {
 }
 
 
-.marquee-text {
-  font-size: 29px;
-  font-weight: 600;
-  margin: 60px 0px;
-  color: #f02d34;
-}
-.marquee {
-  position: relative;
-  height: 400px;
-  width: 100%;
-  overflow-x: hidden;
-}
-.track {
-  position: absolute;
-  white-space: nowrap;
-  will-change: transform;
-  animation: marquee 15s linear infinite;
-  width: 180%;
-}
-.track:hover {
-  animation-play-state: paused;
-}
-@keyframes marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
 
-span.text-red {
-  -webkit-text-stroke: 1px #f02d34;
-  margin-left: 6px;
-}
 
 
 /* PRODUCTS' CARDS*/
@@ -462,7 +429,6 @@ span.text-red {
   display: flex;
   gap: 40px;
   margin: 40px;
-  margin-top: 60px;
   color: #324d67;
 }
 .product-detail-image {
@@ -564,16 +530,23 @@ span.text-red {
 }
 
 
-
+/* SLIDER */
 .maylike-products-wrapper {
-  margin-top: 120px;
+  margin-top: 80px;
 }
 .maylike-products-wrapper h2 {
   text-align: center;
-  margin: 50px;
+  margin: 0 50px 40px;
   color: #324d67;
 
-  font-size: 28px;
+  font-size: 30px;
+  font-weight: 700;
+}
+.marquee {
+  position: relative;
+  height: 400px;
+  width: 100%;
+  overflow-x: hidden;
 }
 .maylike-products-container {
   display: flex;
@@ -581,6 +554,25 @@ span.text-red {
   gap: 15px;
   margin-top: 20px;
 }
+.track {
+  position: absolute;
+  white-space: nowrap;
+  will-change: transform;
+  animation: marquee 15s linear infinite;
+  width: 180%;
+}
+.track:hover {
+  animation-play-state: paused;
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
 .max-qty {
   font-weight: 500;
   color: #f02d34;
