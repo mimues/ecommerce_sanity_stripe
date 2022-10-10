@@ -23,13 +23,11 @@ const ProductDetails = ({ product, products }) => {
   return (
     <div>
       <div className="product-detail-container">
-        <div>
-          <div className="image-container">
-            <img
-              src={urlFor(image && image[index])}
-              className="product-detail-image"
-            />
-          </div>
+        <div className="images-container">
+          <img
+            src={urlFor(image && image[index])}
+            className="product-detail-image"
+          />
           <div className="small-images-container">
             {image?.map((item, i) => (
               <img
@@ -46,7 +44,7 @@ const ProductDetails = ({ product, products }) => {
         <div className="product-detail-desc">
           <h1>{name}</h1>
           <div className="reviews">
-            <div>
+            <div className="stars">
               <AiFillStar />
               <AiFillStar />
               <AiFillStar />
@@ -100,6 +98,7 @@ const ProductDetails = ({ product, products }) => {
 
 // If a page has Dynamic Routes and uses getStaticProps, it needs to define a list of paths to be statically generated.
 export const getStaticPaths = async () => {
+  //current returns the value of the property
   const query = `*[_type == "product"] {
         slug {
             current
